@@ -1,0 +1,25 @@
+body{
+    background-color: #323232;
+}
+
+#ClockArea {
+    color: azure;
+    font-family: 'BIZ UDPMincho', serif;
+    /* font-family: 'Zen Antique Soft', serif; */
+
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+#RealtimeClockArea {
+    font-size: 17vw;
+    margin-bottom: 0px;
+}
+
+#RealtimeDateArea {
+    font-size: 3vw;
+    margin-bottom: 0px;
+}
