@@ -26,4 +26,4 @@ function showClock() {
     document.getElementById("RealtimeClockArea").innerHTML = msgTime;   // 表示更新
 }
 
-setInterval('showClock()',100);
+setInterval('showClock()',10);
