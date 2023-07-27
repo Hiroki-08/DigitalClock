@@ -4,7 +4,8 @@ body{
 
 #ClockArea {
     color: azure;
-    font-family: 'BIZ UDPMincho', serif;
+    /* font-family: 'BIZ UDPMincho', serif; */
+    font-family: 'Noto Sans JP', sans-serif;
 
     text-align: center;
     position: absolute;
