@@ -12,10 +12,10 @@ body{
 }
 
 #RealtimeClockArea {
-    font-family: 'BIZ UDPMincho', serif;
+    /* font-family: 'BIZ UDPMincho', serif; */
 
     /* font-family: 'Zen Antique', serif; */
-    /* font-family: 'Kaisei Tokumin', serif; */
+    font-family: 'Kaisei Tokumin', serif;
     /* font-family: 'Kaisei HarunoUmi', serif; */
     /* font-family: 'Noto Serif Vithkuqi', serif; */
     /* font-family: 'Stardos Stencil', cursive; */
