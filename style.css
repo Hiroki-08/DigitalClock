@@ -3,6 +3,7 @@
 
 body{
     background-color: #323232;
+    font-variant-numeric: tabular-nums;
 }
 
 #ClockArea {
@@ -15,8 +16,7 @@ body{
 }
 
 #RealtimeClockArea {
-    font-variant-numeric: tabular-nums;
-    font-family: 'BIZ UDPMincho', serif;
+    /* font-family: 'BIZ UDPMincho', serif; */
 
     /* font-family: 'Zen Antique', serif; */
     font-family: 'Kaisei Tokumin', serif;
@@ -28,6 +28,7 @@ body{
     /* font-family: "Segoe UI", monospace; */
     font-size: 18vw;
     margin-bottom: 0px;
+
 }
 
 #RealtimeDateArea {
