@@ -1,3 +1,6 @@
+/* プロポーショナルフォントで数値を等幅に揃える方法 */
+/* https://developer.mozilla.org/ja/docs/Web/CSS/font-variant-numeric */
+
 body{
     background-color: #323232;
 }
@@ -12,7 +15,8 @@ body{
 }
 
 #RealtimeClockArea {
-    /* font-family: 'BIZ UDPMincho', serif; */
+    font-variant-numeric: tabular-nums;
+    font-family: 'BIZ UDPMincho', serif;
 
     /* font-family: 'Zen Antique', serif; */
     font-family: 'Kaisei Tokumin', serif;
@@ -27,8 +31,8 @@ body{
 }
 
 #RealtimeDateArea {
-    /* font-family: 'BIZ UDPMincho', serif; */
-    font-family: 'Kaisei Tokumin', serif;
+    font-family: 'BIZ UDPMincho', serif;
+    /* font-family: 'Kaisei Tokumin', serif; */
     font-size: 4.6vw;
     margin-bottom: 0px;
 }
