@@ -15,6 +15,10 @@ body{
     transform: translateY(-50%) translateX(-50%);
 }
 
+#ClockArea::-webkit-scrollbar {
+    display:none;
+}
+
 #RealtimeClockArea {
     /* font-family: 'BIZ UDPMincho', serif; */
 
