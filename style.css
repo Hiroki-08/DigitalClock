@@ -1,6 +1,12 @@
 /* プロポーショナルフォントで数値を等幅に揃える方法 */
 /* https://developer.mozilla.org/ja/docs/Web/CSS/font-variant-numeric */
 
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+
 body{
     background-color: #323232;
     font-variant-numeric: tabular-nums;

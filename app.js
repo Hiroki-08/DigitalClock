@@ -27,3 +27,15 @@ function showClock() {
 }
 
 setInterval('showClock()',10);
+
+window.onload = function() {
+    // 初期スクロール
+    setTimeout(function() {
+        window.scrollTo(0, 1);
+    }, 100);
+
+    // ユーザーが画面をタッチした際に再スクロール
+    document.body.addEventListener('touchstart', function() {
+        window.scrollTo(0, 1);
+    });
+};
