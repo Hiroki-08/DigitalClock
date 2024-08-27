@@ -38,13 +38,28 @@
         crossorigin="anonymous"
     ></script>
     <script src="app.js"></script>
-    <script>
+    <!-- <script>
         window.onload = function(){
         setTimeout(function(){
             window.scrollTo(0,1);
         }, 1);
         };
+    </script> -->
+    <script>
+        function requestFullscreen(elem) {
+            // 全画面表示をリクエストするメソッドを取得
+            const method = elem.requestFullscreen || elem.webkitRequestFullscreen || elem.mozRequestFullScreen || elem.msRequestFullscreen;
+            if (method) {
+                method.call(elem); // 全画面表示をリクエスト
+                }
+        }
+    
+        function openFullscreen() {
+            const elem = document.documentElement;
+            requestFullscreen(elem);
+        }
     </script>
+
 </body>
 
 </html>
