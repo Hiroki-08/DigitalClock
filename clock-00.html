@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Vithkuqi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* プロポーショナルフォントで数値を等幅に揃える方法 */
+        /* https://developer.mozilla.org/ja/docs/Web/CSS/font-variant-numeric */
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: #323232;
+            font-variant-numeric: tabular-nums;
+        }
+
+        #ClockArea {
+            color: azure;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
+
+        #RealtimeClockArea {
+            /* font-family: 'BIZ UDPMincho', serif; */
+
+            /* font-family: 'Zen Antique', serif; */
+            font-family: 'Kaisei Tokumin', serif;
+            /* font-family: 'Kaisei HarunoUmi', serif; */
+            /* font-family: 'Noto Serif Vithkuqi', serif; */
+            /* font-family: 'Stardos Stencil', cursive; */
+            /* font-family: 'Fragment Mono', monospace; */
+            /* font-family: 'Hina Mincho', serif; */
+            /* font-family: "Segoe UI", monospace; */
+            font-size: 18vw;
+            margin-bottom: 0px;
+            line-height: 1em;
+            /* border-bottom: solid 2px; */
+        }
+
+        #RealtimeDateArea {
+            font-family: 'BIZ UDPMincho', serif;
+            /* font-family: 'Kaisei Tokumin', serif; */
+            font-size: 4.6vw;
+            margin-bottom: 0px;
+        }
+
+    </style>
+
+
+    <title>Digital Clock</title>
+
+</head>
+
+<body>
+    <body id="ClockArea">
+        <div id="RealtimeClockArea"></div>
+        <div id="RealtimeDateArea"></div>
+    </body>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+    ></script>
+
+    <script language="JavaScript">
+        const days = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"]
+
+        function set2fig(num) {
+            // 桁数が1桁だったら先頭に0を加えて2桁に調整する
+            var ret;
+            if( num < 10 ) { ret = "0" + num; }
+            else { ret = num; }
+            return ret;
+        }
+
+        function showClock() {
+            var nowTime = new Date();                           // 現在時刻の取得
+
+            var nowYear = nowTime.getFullYear();                // 年を取得
+            var nowMonth= set2fig( nowTime.getMonth() + 1 );   // 月を取得(※1)
+            var nowDay  = set2fig( nowTime.getDate() );          // 日を取得
+            var nowDays = days[nowTime.getDay()];               // 曜日を取得
+            var msgDate = nowYear + "/" + nowMonth + "/" + nowDay + " " + nowDays; // 表示文作成
+
+            var nowHour = set2fig( nowTime.getHours() );        // 時を取得
+            var nowMin  = set2fig( nowTime.getMinutes() );      // 分を取得
+            var nowSec  = set2fig( nowTime.getSeconds() );      // 秒を取得
+            var msgTime = nowHour + ":" + nowMin + ":" + nowSec ;   // 表示文作成
+
+            document.getElementById("RealtimeDateArea").innerHTML = msgDate;   // 表示更新
+            document.getElementById("RealtimeClockArea").innerHTML = msgTime;   // 表示更新
+        }
+
+        setInterval('showClock()',10);
+    </script>
+</body>
+
+</html>
