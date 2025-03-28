@@ -27,3 +27,54 @@ function showClock() {
 }
 
 setInterval('showClock()',10);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const sideMenu = document.getElementById('side-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    // ハンバーガーメニューのクリックイベント
+    hamburgerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        sideMenu.classList.remove('hidden');
+        sideMenu.classList.toggle('active');
+        
+        // アイコンの切り替え
+        if (sideMenu.classList.contains('active')) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+        } else {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+            }
+    });
+
+    // メニュー外クリックで閉じる
+    document.addEventListener('click', (e) => {
+        if (!sideMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+            sideMenu.classList.remove('active');
+            // アイコンをハンバーガーに戻す
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+            setTimeout(() => {
+                sideMenu.classList.add('hidden');
+            }, 300);
+        }
+    });
+
+    // テーマ変更の処理
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    themeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const theme = button.dataset.theme;
+            // 背景色の変更
+            document.body.style.backgroundColor = `var(--${theme}-bg)`;
+            // 時計エリアのフォント色を変更
+            const clockArea = document.getElementById('ClockArea');
+            clockArea.style.color = `var(--${theme}-text)`;
+            // テーマ変更ボタンの色を変更
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            hamburgerBtn.style.color = `var(--${theme}-text)`;
+        });
+    });
+});

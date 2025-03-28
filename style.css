@@ -6,6 +6,111 @@ body{
     font-variant-numeric: tabular-nums;
 }
 
+.hamburger-btn {
+    position: fixed;
+    top: 0.5vw; 
+    right: 0.5vw; 
+    color: azure;
+    z-index: 3;
+}
+
+/* アイコン部分のスタイリング */
+.hamburger-btn i {
+    font-size: 2.5vw; 
+    cursor: pointer;
+    padding: 1vw;
+    transition: transform 0.3s ease;
+    display: block; /* インライン要素からブロック要素に変更 */
+}
+
+.fa-times {
+    transform: rotate(90deg);
+}
+
+/* サイドメニューのスタイル */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 16vw;
+    height: 100vh;
+    color: azure;
+    background-color: rgba(0, 0, 0, 0.9);
+    font-family: 'BIZ UDPMincho', serif;
+    padding: 2vw;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 2;
+}
+
+.side-menu.active {
+    transform: translateX(0);
+}
+
+.theme-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    margin-top: 2vw;
+}
+
+.theme-btn {
+    padding: 0.8vw;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    font-family: 'BIZ UDPMincho', serif;
+    font-size: 1.2vw;
+}
+
+/* テーマボタンごとの配色 */
+.theme-btn[data-theme="dark"] {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.theme-btn[data-theme="light"] {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+}
+
+.theme-btn[data-theme="sepia"] {
+    background-color: var(--sepia-bg);
+    color: var(--sepia-text);
+}
+
+.theme-btn[data-theme="blue"] {
+    background-color: var(--blue-bg);
+    color: var(--blue-text);
+}
+
+.theme-btn[data-theme="rose"] {
+    background-color: var(--rose-bg);
+    color: var(--rose-text);
+}
+
+/* ホバー時の効果 */
+.theme-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 2vw rgba(255, 255, 255, 0.3);
+}
+
+/* テーマカラーの定義 */
+:root {
+    --dark-bg: #323232;
+    --dark-text: azure;
+    --light-bg: #f0f0f0;
+    --light-text: #333;
+    --sepia-bg: #f4ecd8;
+    --sepia-text: #531e0f;
+    --blue-bg: rgb(29, 32, 80);
+    --blue-text: #c69c69;
+    --rose-bg: #351010;
+    --rose-text: #c69c69;
+}
+
 #ClockArea {
     color: azure;
     text-align: center;
@@ -13,6 +118,7 @@ body{
     top: 50%;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
+    z-index: 1;
 }
 
 #ClockArea::-webkit-scrollbar {
