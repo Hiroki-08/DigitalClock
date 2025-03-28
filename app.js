@@ -106,11 +106,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // フルスクリーン表示の制御
-    document.addEventListener('click', () => {
-        if (document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen();
-        } else if (document.documentElement.webkitRequestFullscreen) {
-            document.documentElement.webkitRequestFullscreen();
+    let isFullScreen = false;
+
+    document.addEventListener('click', (e) => {
+        // メニュー操作時はフルスクリーン切り替えを行わない
+        if (e.target.closest('#hamburger-btn') || e.target.closest('#side-menu')) {
+            return;
         }
+
+        if (!isFullScreen) {
+            // フルスクリーン表示
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen();
+            }
+            isFullScreen = true;
+        } else {
+            // フルスクリーン解除
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            }
+            isFullScreen = false;
+        }
+    });
+
+    // フルスクリーン状態の変更を監視
+    document.addEventListener('fullscreenchange', () => {
+        isFullScreen = !!document.fullscreenElement;
+    });
+    document.addEventListener('webkitfullscreenchange', () => {
+        isFullScreen = !!document.webkitFullscreenElement;
     });
 });
