@@ -1,4 +1,7 @@
-const days = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"]
+// 曜日の配列を定義
+const weekDayJa = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"];
+const weekDayEn = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+let currentLang = 'ja'; // デフォルトは日本語
 
 function set2fig(num) {
     // 桁数が1桁だったら先頭に0を加えて2桁に調整する
@@ -13,8 +16,10 @@ function showClock() {
 
     var nowYear = nowTime.getFullYear();                // 年を取得
     var nowMonth= set2fig( nowTime.getMonth() + 1 );   // 月を取得(※1)
-    var nowDay  = set2fig( nowTime.getDate() );          // 日を取得
-    var nowDays = days[nowTime.getDay()];               // 曜日を取得
+    var nowDay  = set2fig( nowTime.getDate() );         // 日を取得
+    var nowDays = currentLang === 'ja' ?                // 言語設定に応じて曜日を取得
+    weekDayJa[nowTime.getDay()] : 
+    weekDayEn[nowTime.getDay()];
     var msgDate = nowYear + "/" + nowMonth + "/" + nowDay + " " + nowDays; // 表示文作成
 
     var nowHour = set2fig( nowTime.getHours() );        // 時を取得
@@ -22,7 +27,7 @@ function showClock() {
     var nowSec  = set2fig( nowTime.getSeconds() );      // 秒を取得
     var msgTime = nowHour + ":" + nowMin + ":" + nowSec ;   // 表示文作成
 
-    document.getElementById("RealtimeDateArea").innerHTML = msgDate;   // 表示更新
+        document.getElementById("RealtimeDateArea").innerHTML = msgDate;   // 表示更新
     document.getElementById("RealtimeClockArea").innerHTML = msgTime;   // 表示更新
 }
 
@@ -60,6 +65,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 sideMenu.classList.add('hidden');
             }, 300);
         }
+    });
+
+    // 初期言語の設定
+    let currentLang = 'ja';
+    const langButtons = document.querySelectorAll('.lang-btn');
+    
+    // 現在の言語に対応するボタンをアクティブに
+    langButtons.forEach(button => {
+        if (button.dataset.lang === currentLang) {
+            button.classList.add('active');
+        }
+    });
+
+    // 言語切り替えの処理
+    langButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            currentLang = button.dataset.lang;
+            // アクティブなボタンのスタイルを更新
+            langButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            // 即時に表示を更新
+            showClock();
+        });
     });
 
     // テーマ変更の処理

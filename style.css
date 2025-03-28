@@ -47,6 +47,49 @@ body{
     transform: translateX(0);
 }
 
+.lang-title {
+    margin-top: 2vw;
+}
+
+/* 言語切り替えボタンのコンテナ */
+.lang-options {
+    display: flex;
+    flex-direction: row;  /* 横並びに変更 */
+    justify-content: space-between;  /* ボタン間のスペースを均等に配分 */
+    gap: 1vw;
+    margin-top: 1vw;
+}
+
+/* 言語切り替えボタンのスタイル */
+.lang-btn {
+    padding: 0.8vw;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 48%;  /* ボタンの幅を調整（間隔を考慮） */
+    font-family: 'BIZ UDPMincho', serif;
+    font-size: 1.2vw;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: azure;
+    font-weight: normal; /* デフォルトは通常の太さ */
+}
+
+.lang-btn:hover {
+    transform: scale(1.02);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* アクティブな言語ボタンのスタイル */
+.lang-btn.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+.theme-title {
+    margin-top: 2vw;
+}
+
 .theme-options {
     display: flex;
     flex-direction: column;
