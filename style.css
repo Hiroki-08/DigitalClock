@@ -48,7 +48,8 @@ body{
 }
 
 .lang-title {
-    margin-top: 2vw;
+    margin-top: 1vw;
+    font-size: 1.3vw;
 }
 
 /* 言語切り替えボタンのコンテナ */
@@ -57,12 +58,12 @@ body{
     flex-direction: row;  /* 横並びに変更 */
     justify-content: space-between;  /* ボタン間のスペースを均等に配分 */
     gap: 1vw;
-    margin-top: 1vw;
+    margin-top: 0.5vw;
 }
 
 /* 言語切り替えボタンのスタイル */
 .lang-btn {
-    padding: 0.8vw;
+    padding: 0.4vw;
     border: none;
     border-radius: 0.5vw;
     cursor: pointer;
@@ -87,14 +88,15 @@ body{
 }
 
 .theme-title {
-    margin-top: 2vw;
+    margin-top: 1vw;
+    font-size: 1.3vw;
 }
 
 .theme-options {
     display: flex;
     flex-direction: column;
     gap: 1vw;
-    margin-top: 2vw;
+    margin-top: 0.5vw;
 }
 
 .theme-btn {
