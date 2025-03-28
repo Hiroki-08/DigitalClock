@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 初期言語の設定
-    let currentLang = 'ja';
     const langButtons = document.querySelectorAll('.lang-btn');
     
     // 現在の言語に対応するボタンをアクティブに
