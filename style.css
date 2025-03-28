@@ -1,7 +1,7 @@
 /* プロポーショナルフォントで数値を等幅に揃える方法 */
 /* https://developer.mozilla.org/ja/docs/Web/CSS/font-variant-numeric */
 
-body{
+body {
     background-color: #323232;
     font-variant-numeric: tabular-nums;
     height: 100vh;
@@ -54,6 +54,22 @@ html {
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     z-index: 2;
+    overflow-y: auto; /* 縦方向のスクロールを追加 */
+    -webkit-overflow-scrolling: touch; /* iOSでのスムーズスクロール */
+}
+
+/* スクロールバーのスタイリング */
+.side-menu::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+.side-menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.side-menu::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 0.25vw;
 }
 
 .side-menu.active {
@@ -124,6 +140,11 @@ html {
 }
 
 /* テーマボタンごとの配色 */
+.theme-btn[data-theme="black"] {
+    background-color: var(--black-bg);
+    color: var(--black-text);
+}
+
 .theme-btn[data-theme="dark"] {
     background-color: var(--dark-bg);
     color: var(--dark-text);
@@ -157,6 +178,8 @@ html {
 
 /* テーマカラーの定義 */
 :root {
+    --black-bg: #000;
+    --black-text: #bd72ff;
     --dark-bg: #323232;
     --dark-text: azure;
     --light-bg: #f0f0f0;
@@ -184,10 +207,10 @@ html {
 }
 
 #RealtimeClockArea {
-    /* font-family: 'BIZ UDPMincho', serif; */
+    font-family: 'BIZ UDPMincho', serif;
+    /* font-family: 'Kaisei Tokumin', serif; */
 
     /* font-family: 'Zen Antique', serif; */
-    font-family: 'Kaisei Tokumin', serif;
     /* font-family: 'Kaisei HarunoUmi', serif; */
     /* font-family: 'Noto Serif Vithkuqi', serif; */
     /* font-family: 'Stardos Stencil', cursive; */
@@ -207,4 +230,38 @@ html {
     /* font-family: 'Kaisei Tokumin', serif; */
     font-size: 4.6vw;
     margin-bottom: 0px;
+}
+
+/* モバイル端末向けの設定 */
+@media screen and (max-width: 768px) {
+    #RealtimeClockArea {
+        font-size: 20vw;  /* モバイルでは時刻表示を大きく */
+    }
+
+    #RealtimeDateArea {
+        font-size: 6vw;   /* 日付も大きく */
+    }
+
+    .hamburger-btn i {
+        font-size: 6vw;   /* ハンバーガーメニューも大きく */
+    }
+
+    .side-menu {
+        width: 40vw;      /* サイドメニューを広く */
+        padding: 4vw 2vw;    /* パディングも広く */
+    }
+
+    .lang-btn, .theme-btn {
+        font-size: 3vw;   /* メニュー内のボタンも大きく */
+        padding: 2vw;
+        gap: 1vw;
+    }
+
+    .lang-title, .theme-title {
+        font-size: 3.5vw; /* メニューのタイトルも大きく */
+    }
+
+    .theme-options {
+        margin-bottom: 4vw; /* 最後のボタンの下に余白を追加 */
+    }
 }
