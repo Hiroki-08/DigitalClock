@@ -4,6 +4,19 @@
 body{
     background-color: #323232;
     font-variant-numeric: tabular-nums;
+    height: 100vh;
+    height: -webkit-fill-available;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+html {
+    height: -webkit-fill-available;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .hamburger-btn {

@@ -104,4 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburgerBtn.style.color = `var(--${theme}-text)`;
         });
     });
+
+    // フルスクリーン表示の制御
+    document.addEventListener('click', () => {
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        } else if (document.documentElement.webkitRequestFullscreen) {
+            document.documentElement.webkitRequestFullscreen();
+        }
+    });
 });

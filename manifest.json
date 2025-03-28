@@ -1,0 +1,9 @@
+{
+    "name": "Digital Clock",
+    "short_name": "Clock",
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "background_color": "#323232",
+    "theme_color": "#323232",
+    "orientation": "portrait"
+}
