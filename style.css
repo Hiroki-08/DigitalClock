@@ -3,7 +3,7 @@
 
 body {
     background-color: #323232;
-    font-variant-numeric: tabular-nums;
+    /* font-variant-numeric: tabular-nums; */
     height: 100vh;
     height: -webkit-fill-available;
     margin: 0;
