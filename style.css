@@ -29,7 +29,7 @@ html {
 
 /* アイコン部分のスタイリング */
 .hamburger-btn i {
-    font-size: 2.5vw; 
+    font-size: min(2.5vw, 40px);
     cursor: pointer;
     padding: 1vw;
     transition: transform 0.3s ease;
@@ -235,15 +235,15 @@ html {
 /* モバイル端末向けの設定 */
 @media screen and (max-width: 768px) {
     #RealtimeClockArea {
-        font-size: 20vw;  /* モバイルでは時刻表示を大きく */
+        font-size: min(20vw, 200px);  /* モバイルでの最小サイズを200pxに制限 */
     }
 
     #RealtimeDateArea {
-        font-size: 6vw;   /* 日付も大きく */
+        font-size: min(6vw, 60px);    /* モバイルでの最小サイズを60pxに制限 */
     }
 
     .hamburger-btn i {
-        font-size: 6vw;   /* ハンバーガーメニューも大きく */
+        font-size: min(6vw, 20px);    /* ハンバーガーメニューの最小サイズを40pxに制限 */
     }
 
     .side-menu {
@@ -252,13 +252,11 @@ html {
     }
 
     .lang-btn, .theme-btn {
-        font-size: 3vw;   /* メニュー内のボタンも大きく */
-        padding: 2vw;
-        gap: 1vw;
+        font-size: min(3vw, 24px);    /* ボタンテキストの最小サイズを24pxに制限 */
     }
 
     .lang-title, .theme-title {
-        font-size: 3.5vw; /* メニューのタイトルも大きく */
+        font-size: min(3.5vw, 28px);  /* タイトルの最小サイズを28pxに制限 */
     }
 
     .theme-options {
